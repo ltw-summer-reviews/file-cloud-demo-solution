@@ -9,37 +9,39 @@
 </head>
 <body>
 
-  <header class="masthead">
+  <a class="skip-link" href="#files">Jump to file list</a>
+
+  <header class="masthead" role="banner">
     <h1 class="logo">File Cloud</h1>
     <a class="sign-out" href="index.html">Sign Out</a>
     <nav class="toolbar">
-      <ul class="file-btns">
+      <ul class="file-btns" role="toolbar" aria-label="Filtering options." aria-controls="files">
         <li>
           <input checked class="file-btn-radio" value="all" id="all" type="radio" name="file-btns">
-          <label class="file-btn-label" for="all">All</label>
+          <label class="file-btn-label" for="all" aria-label="Display all file types." tabindex="0">All</label>
         </li>
         <li>
-          <input class="file-btn-radio" value="document" id="documents" type="radio" name="file-btns">
-          <label class="file-btn-label" for="documents">Documents</label>
+          <input class="file-btn-radio" value="document" id="document" data-type="document" type="radio" name="file-btns">
+          <label class="file-btn-label" for="document" aria-label="Display only documents." tabindex="0">Documents</label>
         </li>
         <li>
-          <input class="file-btn-radio" value="image" id="images" type="radio" name="file-btns">
-          <label class="file-btn-label" for="images">Images</label>
+          <input class="file-btn-radio" value="image" id="image" type="radio" name="file-btns">
+          <label class="file-btn-label" for="image" aria-label="Display only images." tabindex="0">Images</label>
         </li>
         <li>
-          <input class="file-btn-radio" value="video" id="videos" type="radio" name="file-btns">
-          <label class="file-btn-label" for="videos">Videos</label>
+          <input class="file-btn-radio" value="video" id="video" type="radio" name="file-btns">
+          <label class="file-btn-label" for="video" aria-label="Display only videos." tabindex="0">Videos</label>
         </li>
         <li>
           <input class="file-btn-radio" value="audio" id="audio" type="radio" name="file-btns">
-          <label class="file-btn-label" for="audio">Audio</label>
+          <label class="file-btn-label" for="audio" aria-label="Display only audio." tabindex="0">Audio</label>
         </li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <ol class="files-list"></ol>
+  <main role="main">
+    <ol class="files-list" id="files" tabindex="0"></ol>
   </main>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

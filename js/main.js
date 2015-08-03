@@ -7,7 +7,7 @@ files.forEach(function (item) {
     $li = $('<li>').addClass('file').attr('data-type', item.type),
     $i = $('<i>').addClass('file-icon file-' + item.type),
     $strong = $('<a>').attr('href', '#').addClass('file-name').html(item.name),
-    $btn = $('<button>').addClass('file-del').html('Delete')
+    $btn = $('<button>').addClass('file-del').html('Delete').attr('aria-label', 'Delete ' + item.name)
   ;
 
   $li.append($i, $strong, $btn);
@@ -17,17 +17,32 @@ files.forEach(function (item) {
 
 /* ----- File type filter buttons ----- */
 
-$('.file-btns').on('change', 'input', function (e) {
-  var display = $(e.target).val();
-
-  $filesList.children('li').removeClass('is-hidden');
+var triggerFilter = function (display) {
+  $filesList
+    .children('li')
+    .removeClass('is-hidden')
+    .attr('aria-hidden', false)
+    .children('a').attr('tabindex', 0)
+    .siblings('button').attr('tabindex', 0)
+  ;
 
   if (display !== 'all') {
     $filesList.children('li')
       .filter(':not([data-type="' + display + '"])')
       .addClass('is-hidden')
+      .attr('aria-hidden', true)
+      .children('a').attr('tabindex', -1)
+      .siblings('button').attr('tabindex', -1)
     ;
   }
+};
+
+$('.file-btns').on('change', 'input', function (e) {
+  triggerFilter($(e.target).val());
+});
+
+$('.file-btns').on('keypress', 'label', function (e) {
+  $('#' + $(this).attr('for')).click();
 });
 
 
@@ -40,4 +55,11 @@ $('.file-del').on('click', function () {
       $(this).remove();
     })
   ;
+});
+
+
+/* ----- Skip link retarget ----- */
+
+$('.skip-link').on('click', function () {
+  $filesList.focus();
 });
