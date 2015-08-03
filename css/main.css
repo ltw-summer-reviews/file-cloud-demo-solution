@@ -41,6 +41,7 @@ label:focus {
   padding: .4em .8em .5em;
   position: absolute;
   top: -2em;
+  z-index: 1000;
 
   background-color: #069;
   -webkit-transform: translateX(-50%);
