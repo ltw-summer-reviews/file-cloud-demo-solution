@@ -23,7 +23,7 @@ html {
 body {
   margin: 0 auto;
   max-width: 60em;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {
