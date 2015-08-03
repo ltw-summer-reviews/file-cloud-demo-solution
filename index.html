@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>File Cloud</title>
+  <link href="css/main.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+  <header class="masthead">
+    <h1 class="logo">File Cloud</h1>
+    <a class="sign-out" href="index.html">Sign Out</a>
+    <nav class="toolbar">
+      <ul class="file-btns">
+        <li>
+          <input checked class="file-btn-radio" value="all" id="all" type="radio" name="file-btns">
+          <label class="file-btn-label" for="all">All</label>
+        </li>
+        <li>
+          <input class="file-btn-radio" value="document" id="documents" type="radio" name="file-btns">
+          <label class="file-btn-label" for="documents">Documents</label>
+        </li>
+        <li>
+          <input class="file-btn-radio" value="image" id="images" type="radio" name="file-btns">
+          <label class="file-btn-label" for="images">Images</label>
+        </li>
+        <li>
+          <input class="file-btn-radio" value="video" id="videos" type="radio" name="file-btns">
+          <label class="file-btn-label" for="videos">Videos</label>
+        </li>
+        <li>
+          <input class="file-btn-radio" value="audio" id="audio" type="radio" name="file-btns">
+          <label class="file-btn-label" for="audio">Audio</label>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <ol class="files-list"></ol>
+  </main>
+
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="js/files.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
